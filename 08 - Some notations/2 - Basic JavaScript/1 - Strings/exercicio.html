@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- General -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: none;
+            outline: none;
+            line-height: 1;
+        }
+
+        html{
+            font-family: 'Outfit', sans-serif;
+        }
+        body{
+            background-color: rgb(23,23,23);
+            color: white;
+            flex-direction: column;
+            display: flex;
+            padding-top: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+        table{
+            width: 90%;
+            max-width: 700px;
+        }
+        th{
+            padding: 10px;
+            text-align: start;
+        }
+        tr{
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+        td{
+            font-weight: 300;
+            border-radius: 10px;
+            margin: 2px;
+            padding: 15px;
+            font-size: .9rem;
+            background-color: rgb(18, 18, 18);
+        }
+        .questao{
+            width: 30%;
+            font-weight: 400;
+        }
+        .resultado{
+            width: 70%;
+        }
+        form{
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 40px;
+        }
+        form input[type="text"]{
+            background-color: rgb(18, 18, 18);
+            padding: 13px 15px;
+            width: 100%;
+            border-radius: 10px;
+            font-weight: 300;
+            font-family: 'Outfit', sans-serif;
+            color: rgb(147, 147, 147);
+        }
+        form input[type="submit"]{
+            background-color: rgb(18, 18, 18);
+            color: rgb(147, 147, 147);
+            padding: 10px 14px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            border-radius: 10px;
+        }
+    </style>
+    <title>Exercises - 13</title>
+</head>
+<body>
+
+    <!-- 
+
+        nome é: nome;
+        nome tem quantas letras: nome.replace(/\s/g, '').length;
+        segunda letra: nome[1];
+        primeiro indice a: nome.indexOf('a') + 1;
+        ultimo indice a: nome.replace(/\s/g, '').lastIndexOf('a') + 1;
+        3 ultimas letras: nome.slice(-3);
+        palavras do nome: nome.split(" ");
+        maiusculas: nome.toUpperCase();
+        minusculas: nome.toLowerCase();
+
+     -->
+
+    <form>
+        <input type="text" id="input" placeholder="Digite seu nome" autofocus autocomplete="off">
+        <input type="submit" value="+">
+    </form>
+    <table>
+            <!-- Nome -->
+            <tr>
+                <td class="questao">Nome</td>
+                <td class="resultado nome">-</td>
+            </tr>
+            <!-- Quantidade de Letras -->
+            <tr>
+                <td class="questao">Quantidade de Letras</td>
+                <td class="resultado um">-</td>
+            </tr>
+            <!-- Segunda letra -->
+            <tr>
+                <td class="questao">Segunda letra</td>
+                <td class="resultado dois">-</td>
+            </tr>
+            <!-- Primeiro Índice A -->
+            <tr>
+                <td class="questao">Primeiro Índice A</td>
+                <td class="resultado tres">-</td>
+            </tr>
+            <!-- Último Índice A -->
+            <tr>
+                <td class="questao">Último Índice A</td>
+                <td class="resultado quatro">-</td>
+            </tr>
+            <!-- Últimas três letras -->
+            <tr>
+                <td class="questao">Últimas três letras</td>
+                <td class="resultado cinco">-</td>
+            </tr>
+            <!-- Palavras -->
+            <tr>
+                <td class="questao">Palavras</td>
+                <td class="resultado seis">-</td>
+            </tr>
+            <!-- Nome em maiúsculo -->
+            <tr>
+                <td class="questao">Nome em maiúsculo</td>
+                <td class="resultado sete">-</td>
+            </tr>
+            <!-- Nome em minúsculo -->
+            <tr>
+                <td class="questao">Nome em minúsculo</td>
+                <td class="resultado oito">-</td>
+            </tr>
+    </table>
+
+    <script>
+        let form = document.querySelector('form');
+        let input = document.querySelector('#input');
+        let nome;
+        form.onsubmit = e => {
+            e.preventDefault();
+            nome = input.value.trim();
+            document.querySelector("td.nome").innerHTML = nome;
+            document.querySelector("td.um").innerHTML = nome.replace(/\s/g, '').length;
+            document.querySelector("td.dois").innerHTML = input.value[1].toUpperCase();
+            document.querySelector("td.tres").innerHTML = nome.toLowerCase().indexOf('a') + 1;
+            document.querySelector("td.quatro").innerHTML = nome.toLowerCase().replace(/\s/g, '').lastIndexOf('a') + 1;
+            document.querySelector("td.cinco").innerHTML = nome.slice(-3);
+            document.querySelector("td.seis").innerHTML = nome.split(" ");
+            document.querySelector("td.sete").innerHTML = nome.toUpperCase();
+            document.querySelector("td.oito").innerHTML = nome.toLowerCase();
+        }
+
+        
+
+    </script>
+</body>
+</html>

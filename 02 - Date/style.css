@@ -1,0 +1,45 @@
+/* Font */
+@import url(https://fonts.googleapis.com/css?family=Outfit:100,200,300,regular,500,600,700,800,900);
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* General */
+html,body{
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(20,20,20);
+    color: rgb(220,220,220);
+}
+
+/* Application */
+div{
+    text-align: center;
+}
+p{
+    margin-bottom: 30px;
+}
+h1{
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+h2{
+    display: inline-block;
+    margin-top: 30px;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    background-color: rgb(40,40,40);
+}

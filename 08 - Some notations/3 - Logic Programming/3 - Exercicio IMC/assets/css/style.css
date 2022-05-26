@@ -1,0 +1,151 @@
+/* Outfit */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    list-style: none;
+    line-height: 1;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* General */
+html,body{
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgb(30,30,30);
+    color: rgb(230,230,230);
+}
+main{
+    width: 100%;
+    max-width: 1400px;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+
+/* Exercise */
+
+.form-wrapper{
+    position: relative;
+    width: 85%;
+    max-width: 500px;
+
+    margin: 40px auto;
+    padding: 35px 40px;
+    border-radius: 10px;
+
+    background-color: rgb(40,40,40);
+}
+.form-wrapper h2{
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Table */
+table{
+    width: 100%;
+    text-align: left;
+    border-spacing: 10px;
+    margin-bottom: 30px;
+}
+table th, table td{
+    padding: 11px 15px;
+    border-radius: 7px;
+    background-color: rgb(45,45,45);
+    transition: background-color .3s ease;
+}
+table td{
+    font-weight: 300;
+    font-size: .9rem;
+}
+:is(table tr:hover) :is(th, td){
+    background-color: rgb(50,50,50);
+}
+
+/* Form */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    appearance: none;
+}
+
+input{
+    display: block;
+    border: none;
+    width: 100%;
+    margin: 0 auto 20px;
+}
+input[type=number]{
+    background-color: rgb(45,45,45);
+    padding: 12px 15px;
+    max-width: 300px;
+    border-radius: 7px;
+    color: rgb(200,200,200);
+}
+input[type=submit]{
+    border: 3px solid rgb(34, 86, 227);
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border-radius: 7px;
+    max-width: 130px;
+    font-size: .95rem;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color .2s ease,
+    transform .2s ease;
+}
+input[type=submit]:hover{
+    background-color: rgb(34, 86, 227);
+}
+input[type=submit]:active{
+    transform: scale(.95);
+}
+
+/* Result */
+.result{
+    position: absolute;
+    top: calc(100% - 20px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    line-height: 1.25;
+    background: rgb(44, 97, 231);
+    padding: 10px 15px;
+    color: rgb(213, 213, 213);
+    border-radius: 15px;
+    font-size: .95rem;
+    font-weight: 200;
+    text-align: center;
+    transition: background-color .2s ease;
+}
+.result.error{
+    background-color: rgb(202, 60, 60);
+}
+.result span{
+    font-weight: 200;
+    color: rgb(255, 255, 255);
+}
+
+/* Media Queries */
+@media(max-width: 480px){
+    .form-wrapper{
+        padding: 35px 15px;
+    }
+}

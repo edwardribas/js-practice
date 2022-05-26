@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- General -->
+    <title>getRandomWord()</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html{
+            font: 300 1.1rem 'Outfit', sans-serif;
+        }
+        body{
+            background-color: rgb(20, 20, 20);
+            color: white;
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- Display -->
+    <p id="wordDisplay"></p>
+
+    <!-- Application -->
+    <script>
+        const text = document.querySelector("#wordDisplay");
+        const words = [
+            'abacate', // 0
+            'banana', // 1
+            'fruta', // 2
+            'maçã', // 3
+            'pêra', // 4
+            'kiwi', // 5
+            'abacaxi', // 6
+            'pêssego' // 7
+        ]
+
+        const getRandomValue = (min, max) =>
+            Math.floor(Math.random() * (max - min + 1)) + min
+
+        const getRandomWord = () => 
+            text.innerHTML = words[getRandomValue(0, words.length - 1)];
+
+        getRandomWord();
+    </script>
+</body>
+</html>

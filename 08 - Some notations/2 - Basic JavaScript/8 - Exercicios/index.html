@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Metas -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- General -->
+    <title>Formulário</title>
+
+    <!-- Style -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(30,30,30);
+        }
+        form, div{
+            padding: 80px 60px;
+            width: 100%;
+
+            margin: 30px auto;
+            max-width: 400px;
+            border-radius: 14px;
+            background-color: rgb(40,40,40);
+        }
+        form input, form button{
+            display: block;
+            width: 100%;
+            outline: none;
+            border: none;
+            margin-bottom: 12px;
+            padding: 10px 12px;
+            color: rgb(210,210,210);
+            font-weight: 300;
+            background-color: rgb(50,50,50);
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
+        }
+        form input::-webkit-outer-spin-button, form input::-webkit-inner-spin-button{
+            appearance: none;
+        }
+        form button{
+            background-color: rgb(21, 53, 255);
+            color: white;
+            margin: 0 auto;
+            max-width: 100px;
+            cursor: pointer;
+        }
+        div{
+            height: 100%;
+            max-height: 300px;
+            padding: 30px 40px;
+            overflow-y: scroll;
+        }
+        div::-webkit-scrollbar{
+            width: 14px;
+        }
+        div::-webkit-scrollbar-thumb{
+            border: 5px solid rgb(40,40,40);
+            background-color: rgb(21, 53, 255);
+            border-radius: 50px;
+        }
+        div h3{
+            text-align: center;
+            font-size: .95rem;
+            color: white;
+            font-weight: 400;
+            margin-bottom: 15px;
+            font-family: 'Outfit', sans-serif;
+        }
+        div p{
+            margin-bottom: 15px;
+            font-family: 'Outfit', sans-serif;
+            color: rgb(241, 241, 241);
+            font-weight: 200;
+            font-size: .9rem;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Nome" spellcheck="false" autocomplete="on" autofocus>
+        <input type="text" placeholder="Sobrenome" spellcheck="false" autocomplete="on">
+        <input type="number" placeholder="Peso" spellcheck="false" step="0.01" autocomplete="on">
+        <input type="number" placeholder="Altura" spellcheck="false" step="0.01" autocomplete="on">
+        <button>Enviar</button>
+    </form>
+    
+    <div>
+        <h3>Lista de cadastrados</h3>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const div = document.querySelector('div');
+
+        const person = (nome, sobrenome, peso, altura) => {
+            return {
+                nome, sobrenome, peso, altura
+            }
+        }
+
+        const people = [];
+
+        let eduardo = person(1, 2, 3, 4)
+
+
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+
+            let nome = document.querySelector('form input:nth-of-type(1)').value;
+            let sobrenome = document.querySelector('form input:nth-of-type(2)').value;
+            let peso = document.querySelector('form input:nth-of-type(3)').value;
+            let altura = document.querySelector('form input:nth-of-type(4)').value;
+
+            let id = people.length + 1
+            
+            people.push({nome, sobrenome, peso, altura, id});
+            console.log(people);
+
+            let p = document.createElement('p');
+            p.innerText = `Nome: ${nome} ${sobrenome} \n Peso: ${peso} - Altura: ${altura}`;
+            div.appendChild(p);
+            div.scrollBy(0, 50)
+        }
+    </script>
+</body>
+</html>

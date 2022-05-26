@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+div{
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+}
+h3{
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.btn{
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 13px;
+    border-radius: 8px;
+    color: rgb(12, 32, 124);
+    background-color: white;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    user-select: none;
+    border: 2px solid rgb(12, 32, 124);
+    transition: background-color .2s ease, color .2s ease, transform .3s ease;
+}
+.btn:hover{
+    background-color: rgb(12, 32, 124);
+    color: white;
+}
+.btn:active{
+    transform: scale(.89);
+}
+
+/* Modal */
+
+.back{
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    background-color: rgba(0, 0, 0, 0.046);
+    backdrop-filter: blur(7px);
+    visibility: hidden;
+    opacity: 0;
+    transition: .2s ease;
+}
+.back.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal{
+    position: fixed;
+    top: 50%;
+    z-index: 100;
+    transform: translateY(calc(-50% - 30px));
+    background-color: white;
+    padding: 40px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.039);
+    border: 1px solid rgba(0, 0, 0, 0.034);
+    border-radius: 10px;
+    max-width: 700px;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .2s ease, opacity .2s, transform .3s ease;
+}
+.modal.active{
+    transform: translateY(-50%);
+    visibility: visible;
+    opacity: 1;
+}
+.modal p{
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
